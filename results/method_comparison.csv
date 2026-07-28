@@ -1,0 +1,8 @@
+method,mAP50,mAP50_95,AP_Car,AP_Pedestrian,AP_Cyclist
+YOLO11n Baseline,0.866,0.595,0.767,0.443,0.575
+Random Oversampling,0.878,0.613,0.784,0.459,0.596
+Class-Balanced Resampling,0.875,0.598,0.760,0.475,0.558
+Fixed All-Factor Resampling,0.886,0.612,0.774,0.466,0.596
+Best Grid-Search Resampling,0.892,0.619,0.777,0.478,0.601
+Baseline + Fine-Tuning,0.904,0.655,0.821,0.501,0.642
+Best Resampling + Fine-Tuning,0.924,0.682,0.849,0.516,0.682
