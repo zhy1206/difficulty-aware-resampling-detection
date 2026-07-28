@@ -1,0 +1,15 @@
+experiment: yolo11n_kitti_baseline
+model: yolo11n.pt
+dataset: KITTI
+classes:
+  - Car
+  - Pedestrian
+  - Cyclist
+training:
+  imgsz: 640
+  epochs: 50
+  batch: 16
+  data_distribution: original
+notes:
+  - Use the fixed split from the original experiments for exact comparison.
+  - Validation data must not be resampled.
