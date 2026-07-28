@@ -2,7 +2,7 @@
 
 > Accepted at PRCV 2026
 
-This repository presents a data-centric training strategy for improving YOLO-based object detection on the KITTI benchmark. The method models image difficulty from four annotation-derived factors - object scale, occlusion, truncation, and class imbalance - and uses the resulting score to resample difficult training images.
+This repository presents a data-centric training strategy for improving object detection. The method models image difficulty from four annotation-derived factors - object scale, occlusion, truncation, and class imbalance - and uses the resulting score to resample difficult training images.
 
 The detector architecture remains unchanged, so the method introduces no additional inference-time modules or computational overhead.
 
@@ -13,10 +13,8 @@ The detector architecture remains unchanged, so the method introduces no additio
 ## Highlights
 
 - Multi-factor image difficulty modeling from KITTI annotations.
-- Adaptive image repetition with a maximum repeat factor of 5.
-- A $3^4 = 81$-setting grid search to disentangle factor contributions.
-- High-resolution fine-tuning at $960 \times 960$ using the best resampling configuration.
-- Improved difficult-category detection without modifying YOLO11n.
+- Use grid search to disentangle factor contributions.
+- Improved difficult-category detection without modifying YOLO structure.
 
 ## Method
 
