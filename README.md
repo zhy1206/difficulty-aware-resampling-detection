@@ -7,7 +7,7 @@ This repository presents a data-centric training strategy for improving YOLO-bas
 The detector architecture remains unchanged, so the method introduces no additional inference-time modules or computational overhead.
 
 <p align="center">
-  <img src="assets/pipeline.png" width="920" alt="Difficulty-aware resampling pipeline">
+  <img src="assets/pipeline.webp" width="920" alt="Difficulty-aware resampling pipeline">
 </p>
 
 ## Highlights
@@ -83,7 +83,7 @@ Compared with the original YOLO11n baseline, the final strategy improves:
 Compared with baseline high-resolution fine-tuning, the proposed strategy improves mAP50-95 by 2.7 percentage points.
 
 <p align="center">
-  <img src="assets/factor_analysis.png" width="900" alt="Marginal factor analysis">
+  <img src="assets/factor_analysis.webp" width="900" alt="Marginal factor analysis">
 </p>
 
 The category-compensation factor contributes most consistently, especially for Pedestrian and Cyclist. Small-object and truncation factors are also beneficial when combined with category compensation, while the occlusion factor is less stable in this experiment.
