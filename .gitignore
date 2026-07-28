@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+
+# Datasets and generated labels
+data/
+datasets/
+
+# Training outputs and checkpoints
+runs/
+outputs/
+checkpoints/
+weights/
+*.pt
+*.pth
+*.ckpt
+
+# Experiment logs
+wandb/
+mlruns/
+logs/
+*.log
+
+# Temporary files
+*.tmp
+*.swp
+.DS_Store
+Thumbs.db
