@@ -1,0 +1,13 @@
+experiment: yolo11n_kitti_best_resampling_finetune
+initialization: best_resampling_checkpoint
+resampling_config: best_resampling.yaml
+training:
+  imgsz: 960
+  epochs: 20
+  batch: 8
+augmentation:
+  mosaic: 0.2
+  scale: 0.2
+  translate: 0.05
+validation:
+  resampled: false
