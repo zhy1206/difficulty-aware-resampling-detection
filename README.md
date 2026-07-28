@@ -14,41 +14,45 @@ The detector architecture remains unchanged, so the method introduces no additio
 
 - Multi-factor image difficulty modeling from KITTI annotations.
 - Adaptive image repetition with a maximum repeat factor of 5.
-- A 3^4 = 81-setting grid search to disentangle factor contributions.
-- High-resolution fine-tuning at 960 x 960 using the best resampling configuration.
+- A $3^4 = 81$-setting grid search to disentangle factor contributions.
+- High-resolution fine-tuning at $960 \times 960$ using the best resampling configuration.
 - Improved difficult-category detection without modifying YOLO11n.
 
 ## Method
 
-For an image \(I\), the image-level difficulty score is computed by accumulating object-level factors:
+For an image $I$, the image-level difficulty score is computed by accumulating object-level factors:
 
-\[
-\mathrm{Score}(I)=\sum_{b\in B(I)} \left(
-\alpha\,\mathbf{1}_{\mathrm{small}}(b)+
-\beta\,\mathbf{1}_{\mathrm{occluded}}(b)+
-\gamma\,\mathbf{1}_{\mathrm{truncated}}(b)+
-\delta\,\mathbf{1}_{\mathrm{hardCls}}(b)
+```math
+\operatorname{Score}(I)=\sum_{b\in B(I)}\left(
+\alpha\,\mathbf{1}_{\mathrm{small}}(b)
++\beta\,\mathbf{1}_{\mathrm{occluded}}(b)
++\gamma\,\mathbf{1}_{\mathrm{truncated}}(b)
++\delta\,\mathbf{1}_{\mathrm{hardCls}}(b)
 \right).
-\]
+```
 
 The score is linearly mapped to an image repetition number:
 
-\[
-R(I)=\min\left(R_{\max},\;1+\left\lfloor
-\frac{\mathrm{Score}(I)}{\mathrm{Score}_{\max}}(R_{\max}-1)+0.5
-\right\rfloor\right),
-\]
+```math
+R(I)=\min\left(
+R_{\max},
+1+\left\lfloor
+\frac{\operatorname{Score}(I)}{\operatorname{Score}_{\max}}
+(R_{\max}-1)+0.5
+\right\rfloor
+\right),
+```
 
-where \(R_{\max}=5\).
+where $R_{\max}=5$.
 
 The four factors are defined as follows:
 
 | Factor | Symbol | Definition |
 |---|---:|---|
-| Small object | \(\alpha\) | Bounding-box area smaller than \(32^2\) pixels |
-| Occlusion | \(\beta\) | KITTI occlusion level 2 or 3 |
-| Truncation | \(\gamma\) | KITTI truncation ratio greater than 0.5 |
-| Hard category | \(\delta\) | Pedestrian or Cyclist |
+| Small object | α | Bounding-box area smaller than 32² pixels |
+| Occlusion | β | KITTI occlusion level 2 or 3 |
+| Truncation | γ | KITTI truncation ratio greater than 0.5 |
+| Hard category | δ | Pedestrian or Cyclist |
 
 The best grid-search configuration is:
 
