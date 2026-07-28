@@ -1,0 +1,17 @@
+experiment: yolo11n_kitti_best_resampling
+model: yolo11n.pt
+resampling:
+  alpha_small: 1.0
+  beta_occlusion: 0.0
+  gamma_truncation: 0.5
+  delta_hard_class: 1.0
+  max_repeat: 5
+  small_area_threshold: 1024
+  occlusion_levels: [2, 3]
+  truncation_threshold: 0.5
+  hard_classes: [Pedestrian, Cyclist]
+training:
+  imgsz: 640
+  epochs: 50
+  batch: 16
+selection_metric: mAP50-95
