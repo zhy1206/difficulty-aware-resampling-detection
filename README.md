@@ -23,7 +23,7 @@ The detector architecture remains unchanged, so the method introduces no additio
 For an image $I$, the image-level difficulty score is computed by accumulating object-level factors:
 
 ```math
-\operatorname{Score}(I)=\sum_{b\in B(I)}\left(
+\mathrm{Score}(I)=\sum_{b\in B(I)}\left(
 \alpha\,\mathbf{1}_{\mathrm{small}}(b)
 +\beta\,\mathbf{1}_{\mathrm{occluded}}(b)
 +\gamma\,\mathbf{1}_{\mathrm{truncated}}(b)
@@ -37,7 +37,7 @@ The score is linearly mapped to an image repetition number:
 R(I)=\min\left(
 R_{\max},
 1+\left\lfloor
-\frac{\operatorname{Score}(I)}{\operatorname{Score}_{\max}}
+\frac{\mathrm{Score}(I)}{\mathrm{Score}_{\max}}
 (R_{\max}-1)+0.5
 \right\rfloor
 \right),
